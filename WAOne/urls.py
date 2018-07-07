@@ -15,7 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from WAOne import views
+from Page import views as page
+from Post import views as post
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.home),
+    path('login/', views.login),
+    path('logout/', views.logout),
+    path('page/create', page.create_page),
+    path('page/edit', page.edit_page),
+    path('page/delete', page.del_page),
+    path('post/create', post.create_post),
+    path('post/edit', post.edit_post),
+    path('post/delete', post.del_post),
 ]
