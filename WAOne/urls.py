@@ -20,13 +20,18 @@ from Page import views as page
 from Post import views as post
 
 urlpatterns = [
+    # URLs for Main
     path('admin/', admin.site.urls),
     path('', views.home),
     path('login/', views.login),
     path('logout/', views.logout),
-    path('page/create', page.create_page),
+
+    # URLs for Blog
+    path('blog/create', page.create_page),
     path('page/edit', page.edit_page),
     path('page/delete', page.del_page),
+
+    # URLs for Post
     path('post/create', post.create_post),
     path('post/edit', post.edit_post),
     path('post/delete', post.del_post),

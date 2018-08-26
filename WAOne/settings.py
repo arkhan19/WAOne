@@ -25,12 +25,13 @@ SECRET_KEY = '=tyr(xt#c*7ivy#fxam=g4@-w^16-@@s&z^+_!h!ot_68t#*wv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'Post',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,9 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Page.apps.PageConfig',
+    'django_hosts',
 ]
 
 MIDDLEWARE = [
+    'django_hosts.middleware.HostsRequestMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -48,9 +51,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_hosts.middleware.HostsResponseMiddleware'
+
 ]
 
 ROOT_URLCONF = 'WAOne.urls'
+ROOT_HOSTCONF = 'WAOne.hosts'
+DEFAULT_HOST = 'www'
 
 TEMPLATES = [
     {
@@ -82,7 +89,7 @@ DATABASES = {
         'USER': 'f3n1xx',
         'PASSWORD': 'abcdefgh',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '1234',
     }
 }
 
